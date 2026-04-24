@@ -720,48 +720,257 @@ nav.site-nav.solid .phone:hover { background: var(--ink); color: var(--cream); }
   padding-bottom: 4px;
 }
 
-/* ========== FOOTER ========== */
-footer {
-  padding: 64px 48px 40px;
-  background: var(--cream-deep);
-  text-align: center;
-  border-top: 1px solid rgba(26,31,32,0.08);
+/* ========== ORNAMENT DIVIDER (between service sections) ========== */
+.section-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 60px 0;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-footer .footer-brand {
+.section-ornament .line {
+  flex: 1;
+  max-width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--tiffany-deep));
+}
+.section-ornament .line.right {
+  background: linear-gradient(90deg, var(--tiffany-deep), transparent);
+}
+.section-ornament .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  transform: rotate(45deg);
+  display: inline-block;
+}
+.section-ornament .dot.tiffany { background: var(--tiffany-deep); }
+.section-ornament .dot.gold { background: #c9a582; }
+.section-ornament .dot.ink { background: var(--ink); }
+.section-ornament .diamond {
+  color: var(--tiffany-deep);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+}
+
+/* ========== SUBSECTION LABEL (inside a service section) ========== */
+.subsection-label {
+  text-align: center;
+  margin: 20px 0 32px;
   font-family: 'Jost', sans-serif;
   font-weight: 300;
-  font-size: 13px;
-  letter-spacing: 0.4em;
+  font-size: 11px;
+  letter-spacing: 0.5em;
   text-transform: uppercase;
-  color: var(--ink);
+  color: var(--tiffany-deep);
+}
+.subsection-label::before,
+.subsection-label::after {
+  content: "—";
+  display: inline-block;
+  margin: 0 14px;
+  color: var(--tiffany-deep);
+  opacity: 0.5;
+}
+
+/* ========== COCKTAIL FEATURE CALLOUT ========== */
+.cocktails-feature {
+  padding: 100px 48px;
+  background: var(--cream-deep);
+  text-align: center;
+}
+.cocktails-feature-inner {
+  max-width: 820px;
+  margin: 0 auto;
+}
+.cocktails-feature .kicker {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 11px;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--tiffany-deep);
   margin-bottom: 24px;
 }
-footer .footer-links {
-  display: flex;
-  gap: 32px;
-  justify-content: center;
-  margin-bottom: 32px;
-  flex-wrap: wrap;
+.cocktails-feature h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: clamp(36px, 4.5vw, 60px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 28px;
 }
-footer .footer-links a {
+.cocktails-feature h2 em {
+  font-style: italic;
+  color: var(--tiffany-deep);
+}
+.cocktails-feature p {
+  font-size: 19px;
+  line-height: 1.8;
   color: var(--ink-soft);
-  text-decoration: none;
+  font-weight: 300;
+  margin-bottom: 32px;
+}
+.cocktails-feature .cocktail-stat {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 20px 32px;
+  background: var(--cream);
+  border-top: 2px solid var(--tiffany);
+}
+.cocktails-feature .cocktail-stat .num {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 48px;
+  color: var(--tiffany-dark);
+  line-height: 1;
+}
+.cocktails-feature .cocktail-stat .label {
   font-family: 'Jost', sans-serif;
   font-weight: 300;
   font-size: 11px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* ========== FOOTER (new 4-column layout) ========== */
+footer {
+  padding: 80px 48px 40px;
+  background: var(--ink);
+  color: var(--cream);
+  border-top: 1px solid rgba(129,216,208,0.15);
+}
+.footer-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid rgba(250,248,243,0.08);
+}
+.footer-col-title {
+  font-family: 'Jost', sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--tiffany);
+  margin-bottom: 24px;
+}
+.footer-brand {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 28px;
+  color: var(--cream);
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.footer-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(250,248,243,0.7);
+  margin-bottom: 24px;
+  max-width: 320px;
+}
+.footer-social {
+  display: flex;
+  gap: 20px;
+}
+.footer-social a {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--cream);
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-bottom: 1px solid var(--tiffany);
   transition: color 0.3s;
 }
-footer .footer-links a:hover { color: var(--tiffany-deep); }
-footer .copy {
+.footer-social a:hover { color: var(--tiffany); }
+.footer-address {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(250,248,243,0.85);
+  margin-bottom: 16px;
+}
+.footer-address strong {
+  color: var(--cream);
+  font-weight: 500;
+}
+.footer-phone {
+  display: inline-block;
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 20px;
+  letter-spacing: 0.1em;
+  color: var(--tiffany);
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-bottom: 1px solid rgba(129,216,208,0.3);
+  transition: border-color 0.3s;
+}
+.footer-phone:hover { border-color: var(--tiffany); }
+.footer-hours {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(250,248,243,0.85);
+}
+.footer-hour-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+}
+.footer-day {
   font-family: 'Jost', sans-serif;
   font-weight: 300;
   font-size: 11px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--ink-soft);
-  opacity: 0.6;
+  color: var(--tiffany);
+  margin-bottom: 2px;
+}
+.footer-time {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  color: rgba(250,248,243,0.85);
+}
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.footer-links a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  color: rgba(250,248,243,0.85);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-links a:hover { color: var(--tiffany); }
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 32px;
+  text-align: center;
+}
+.footer-bottom .copy {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(250,248,243,0.5);
 }
 
 /* ========== RESPONSIVE ========== */
@@ -782,4 +991,13 @@ footer .copy {
   .visit .call-btn .num { font-size: 15px; margin-left: 10px; padding-left: 10px; }
   .loyalty-notice .notice-card { padding: 48px 24px; }
   .services-banner { height: 220px; }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0 0 40px;
+  }
+  footer { padding: 60px 24px 32px; }
+  .cocktails-feature { padding-left: 24px; padding-right: 24px; padding-top: 80px; padding-bottom: 80px; }
+  .section-ornament { padding: 40px 0; }
+  .section-ornament .line { max-width: 60px; }
 }

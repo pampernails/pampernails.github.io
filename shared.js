@@ -9,10 +9,18 @@ const SITE = {
   phone: '469-707-3194',
   phoneDisplay: '469 · 707 · 3194',
   phoneLink: 'tel:4697073194',
-  instagram: '#',  // Replace with actual Instagram URL when ready
-  facebook: '#',   // Replace with actual Facebook URL when ready
+  instagram: 'https://www.instagram.com/pampernailsrc/',
+  instagramHandle: '@pampernailsrc',
+  facebook: 'https://www.facebook.com/p/Pamper-Nails-100044947975938/',
   copyright: '© 2026 Pamper Nails · All content copyright Pamper Nails'
 };
+
+// ─── Business hours ───
+const HOURS = [
+  { day: 'Monday — Friday', time: '9:30 AM — 7:30 PM' },
+  { day: 'Saturday',         time: '9:00 AM — 7:00 PM' },
+  { day: 'Sunday',           time: '11:30 AM — 6:00 PM' }
+];
 
 // ─── Nav links. Add a page here and it shows up on every page automatically. ───
 const NAV_LINKS = [
@@ -33,7 +41,6 @@ function buildNav() {
   const navEl = document.getElementById('site-nav');
   if (!navEl) return;
 
-  // 'solid' style keeps nav opaque from the start (for inner pages without a dark hero)
   const solidAttr = navEl.dataset.style === 'solid' ? ' solid' : '';
   const active = getActivePage();
 
@@ -52,7 +59,6 @@ function buildNav() {
     </nav>
   `;
 
-  // Scroll effect — only for non-solid (home page with hero)
   if (!solidAttr) {
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
@@ -68,15 +74,53 @@ function buildFooter() {
   if (!footerEl) return;
 
   const footerLinksHTML = NAV_LINKS.map(l => `<a href="${l.href}">${l.label}</a>`).join('');
+  const hoursHTML = HOURS.map(h =>
+    `<div class="footer-hour-row"><span class="footer-day">${h.day}</span><span class="footer-time">${h.time}</span></div>`
+  ).join('');
 
   footerEl.innerHTML = `
     <footer>
-      <div class="footer-brand">${SITE.name}</div>
-      <div class="footer-links">
-        ${footerLinksHTML}
-        <a href="${SITE.phoneLink}">Call</a>
+      <div class="footer-grid">
+
+        <div class="footer-col footer-col-brand">
+          <div class="footer-brand">${SITE.name}</div>
+          <div class="footer-tagline">A full-service nail &amp; spa sanctuary in Royse City, Texas.</div>
+          <div class="footer-social">
+            <a href="${SITE.instagram}" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+            <a href="${SITE.facebook}" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-col-title">Visit</div>
+          <div class="footer-address">
+            <strong>${SITE.name}</strong><br>
+            ${SITE.address}<br>
+            ${SITE.cityStateZip}
+          </div>
+          <a href="${SITE.phoneLink}" class="footer-phone">${SITE.phoneDisplay}</a>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-col-title">Hours</div>
+          <div class="footer-hours">
+            ${hoursHTML}
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-col-title">Explore</div>
+          <div class="footer-links">
+            ${footerLinksHTML}
+            <a href="${SITE.phoneLink}">Call to Book</a>
+          </div>
+        </div>
+
       </div>
-      <div class="copy">${SITE.copyright}</div>
+
+      <div class="footer-bottom">
+        <span class="copy">${SITE.copyright}</span>
+      </div>
     </footer>
   `;
 }
