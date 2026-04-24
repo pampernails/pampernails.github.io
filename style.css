@@ -222,6 +222,16 @@ nav.site-nav.solid .phone:hover { background: var(--ink); color: var(--cream); }
   margin-top: 24px;
 }
 
+/* ========== SERVICES BANNER ========== */
+.services-banner {
+  width: 100%;
+  height: 340px;
+  background-image: url('images/services-banner.jpg');
+  background-size: cover;
+  background-position: center;
+  background-color: var(--cream-deep);
+}
+
 /* ========== INTRO / WELCOME ========== */
 .intro {
   padding: 140px 48px;
@@ -771,4 +781,5 @@ footer .copy {
   .visit .call-btn { padding: 18px 32px; font-size: 11px; }
   .visit .call-btn .num { font-size: 15px; margin-left: 10px; padding-left: 10px; }
   .loyalty-notice .notice-card { padding: 48px 24px; }
+  .services-banner { height: 220px; }
 }
